@@ -1,0 +1,71 @@
+/*
+There are N students in a class. 
+Some of them are friends, while some are not. 
+Their friendship is transitive in nature. 
+For example, if A is a direct friend of B, and B is a direct friend of C, then A is an indirect friend of C. 
+And we defined a friend circle is a group of students who are direct or indirect friends.
+
+Given a N*N matrix M representing the friend relationship between students in the class. 
+If M[i][j] = 1, then the ith and jth students are direct friends with each other, otherwise not. 
+And you have to output the total number of friend circles among all the students.
+Example 1:
+Input: 
+[[1,1,0],
+ [1,1,0],
+ [0,0,1]]
+Output: 2
+Explanation:The 0th and 1st students are direct friends, so they are in a friend circle. 
+The 2nd student himself is in a friend circle. So return 2.
+Example 2:
+Input: 
+[[1,1,0],
+ [1,1,1],
+ [0,1,1]]
+Output: 1
+Explanation:The 0th and 1st students are direct friends, the 1st and 2nd students are direct friends, 
+so the 0th and 2nd students are indirect friends. All of them are in the same friend circle, so return 1.
+Note:
+N is in range [1,200].
+M[i][i] = 1 for all students.
+If M[i][j] = 1, then M[j][i] = 1.
+*/
+
+/*
+思路：
+对学生集合union_find
+统计数目的方法：可以设置总共由n个组，合并一次那么就n--
+*/
+
+class Solution {
+public:
+    vector<int> parent;
+    int find(int x) {
+        if (parent[x] == x) {
+            return x;
+        }
+        parent[x] = find(parent[x]);
+        return parent[x];
+    }
+    }
+    int findCircleNum(vector<vecotor<int>>& M){
+        if (M.empty())
+            return 0;
+        int len = M.size();        
+        parent = vector<int>(len);
+        for (int i = 0; i < len; i++) 
+            parent[i] = i;
+        int ans = len;
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < len; j++) {
+                if (M[i][j] == 1) {
+                    int pa = find(i);
+                    int pb = find(j);
+                    if (pa == pb) {
+                        parent[a] = b;
+                        ans--;
+                    }
+                }
+            }
+        }    
+        return ans;
+};
