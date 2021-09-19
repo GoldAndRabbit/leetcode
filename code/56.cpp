@@ -18,6 +18,13 @@ return [1,6],[8,10],[15,18].
       ans.back.end = max(ans.back.end, i.end)
 */
 
+#include<iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
+
+using namespace std;
+
 struct Interval {
     int start;
     int end;

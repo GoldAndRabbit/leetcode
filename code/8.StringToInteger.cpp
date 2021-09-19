@@ -2,7 +2,6 @@
 Implement atoi to convert a string to an integer.
 
 Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
-
 Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
 
 Update (2015-02-10):
@@ -23,6 +22,12 @@ If the first sequence of non-whitespace characters in str is not a valid integra
 If no valid conversion could be performed, a zero value is returned. If the correct value is out of the range of representable values, INT_MAX (2147483647) or INT_MIN (-2147483648) is returned.
 如果范围不再INT MAX 和 INT_MIN,就返回最大或者最小
  */
+#include<iostream>
+#include<vector>
+#define INT_MAX 2147483647
+#define INT_MIN (-INT_MAX - 1)
+
+using namespace std;
 
 class Solution {
     public:

@@ -14,11 +14,16 @@ nums2 = [3, 4]
 
 The median is (2 + 3)/2 = 2.5
 */
+#include<iostream>
+#include<vector>
+
+using namespace std;
 
 class Solution {
 public:
     int getKth(int k, vector<int> nums1, vector<int> nums2) {
-        int m = nums1.size(), n = nums2.size();
+        int m = nums1.size();
+        int n = nums2.size();
         if (m > n) return getKth(k, nums2, nums1);
         if (m == 0) return nums2[k - 1];
         if (k == 1) return min(nums1[0], nums2[0]);
